@@ -1,0 +1,143 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Companies & Organisations";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <figure>
+                <img src="~/images/Companies/office.jpg" class="img-fluid" alt="office">
+                <figurecaption style="visibility:visible">
+                    <h3 id="ind">Companies and Organizations</h3>
+                    <p id="intro">
+                        The Industry 4.0 market is forecasted to reach $1 trillion by 2030,
+                        dominated by global technology giants including Alphabet-Google, HP, Samsung,
+                        IBM, NEC, Microsoft, and more. According to the new 4-volume report by HSRC:
+                        Global Industry 4.0 Market & Technologies 2018-2023, the Industry 4.0 market
+                        will reach $214B by 2023 (https://www.prnewswire.com/)
+                    </p>
+                </figurecaption>
+            </figure>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <figure>
+                <img src="~/images/Companies/ibm.jpg" alt="IBM" class="img-responsive">
+                <figurecaption class="compfig">
+                    IBM
+                    <br />
+                    <a class="btn btn-info" href="https://www.ibm.com/industries/manufacturing?S_PKG=ov60479&cm_mmc=Search_Google-_-Industrial_Industrial+-+Discrete+Manufacturing-_-WW_NA-_-industry+4.0_Exact_ov60479&cm_mmca1=000020DR&cm_mmca2=10005255&cm_mmca7=9071954&cm_mmca8=kwd-297031802574&cm_mmca9=9a244c0e-4e2f-4a0c-879b-abaf5cee4a64&cm_mmca10=280798821827&cm_mmca11=e&mkwid=9a244c0e-4e2f-4a0c-879b-abaf5cee4a64|1082|36760&cvosrc=ppc.google.industry%204.0&cvo_campaign=000020DR&cvo_crid=280798821827&Matchtype=e" role="button">View Website</a>
+                </figurecaption>
+            </figure>
+        </div>
+        <div class="col-sm-6">
+            <figure>
+                <img src="~/images/Companies/amazon.jpg" alt="Amazon" class="img-responsive">
+                <figurecaption class="compfig">
+                    Amazon
+                    <br />
+                    <a class="btn btn-info" href="https://aws.amazon.com/ai/" role="button">View Website</a>
+                </figurecaption>
+            </figure>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <figure>
+                <img src="~/images/Companies/google.jpg" alt="Google" class="img-responsive">
+                <figurecaption class="compfig">
+                    Google
+                    <br />
+                    <a class="btn btn-info" href="https://ai.google/" role="button">View Website</a>
+                </figurecaption>
+            </figure>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <figure>
+                <img src="~/images/Companies/microsoft.jpg" alt="Microsoft" class="img-responsive">
+                <figurecaption class="compfig">
+                    Microsoft
+                    <br />
+                    <a class="btn btn-info" href="https://www.microsoft.com/en-us/ai?activetab=pivot1%3aprimaryr6" role="button">View Website</a>
+                </figurecaption>
+            </figure>
+        </div>
+        <div class="col-sm-6">
+            <figure>
+                <img src="~/images/Companies/CSIRO.jpg" alt="CSIRO" class="img-responsive">
+                <figurecaption class="compfig">
+                    CSIRO
+                    <br />
+                    <a class="btn btn-info" href="https://www.csiro.au/" role="button">View Website</a>
+                </figurecaption>
+            </figure>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <figure>
+                <img src="~/images/Companies/department.jpg" alt="Department of Industry,Science,Energy and Resources" class="img-responsive">
+                <figurecaption class="compfig">
+                    Department of Industry,Science,Energy and Resources
+                    <br />
+                    <a class="btn btn-info" href="https://www.industry.gov.au/" role="button">View Website</a>
+                </figurecaption>
+            </figure>
+        </div>
+    </div>
+    <hr />
+
+    @*Display Feedback list here*@
+<div class="fbcontainer">
+    <div id="fbheading">Feedback</div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div style="text-align:center;"><a href="~/FeedBack/Create/" class="btn btn-info">Submit your feedback</a></div>
+    }
+    else
+    {
+        <div style="text-align:center;">Please <a href="~/Identity/Account/Login?returnUrl=~/Home/CompaniesOrganisations#fbheading">login</a> or <a href="~/Identity/Account/Register?returnUrl=~/Home/CompaniesOrganisations#fbheading">create an account</a> to post your discussion on this page</div>
+    }
+
+    @model IEnumerable<Industry4Project.Models.feedback>
+
+    @foreach (var item in Model)
+    {
+        <h2>@Html.DisplayFor(modelItem => item.Heading)</h2>
+        <p>@Html.DisplayFor(modelItem => item.CompanyorOrganisationName)</p>
+        <p>
+            @{
+                for (int i = 0; i < item.Agree; i++)
+                {
+                    <span style="color: #f8bd08; ">&#x2605;</span>
+                }
+                for (int i = 0; i < 5 - item.Agree; i++)
+                {
+                    <span>&#x2606;</span>
+                }
+            }
+        </p>
+        <p>@Html.DisplayFor(modelItem => item.FeedBack)</p>
+        <p>Feedback by <b>@Html.DisplayFor(modelItem => item.UserName)</b> on @Html.DisplayFor(modelItem => item.Date)</p>
+        @if (User.IsInRole("Manager"))
+        {
+            <a asp-controller="feedback" asp-action="Edit" class="btn btn-primary" role="button" asp-route-id="@item.Id">Edit</a>
+        }
+        <a asp-controller="feedback" asp-action="Details" class="btn btn-light" role="button" asp-route-id="@item.Id">Details</a>
+        @if (User.IsInRole("Manager"))
+        {
+            <a asp-controller="feedback" asp-action="Delete" class="btn btn-primary" role="button" asp-route-id="@item.Id">Delete</a>
+        }
+        <a asp-controller="feedback" asp-action="IncreaseAgree" class="btn btn-success" role="button" asp-route-id="@item.Id">Agree(@item.Agree)</a>
+        <a asp-controller="feedback" asp-action="IncreaseDisagree" class="btn btn-danger" role="button" asp-route-id="@item.Id">Disagree(@item.Disagree)</a>
+        <hr />
+    }
+</div>
+
+</div>

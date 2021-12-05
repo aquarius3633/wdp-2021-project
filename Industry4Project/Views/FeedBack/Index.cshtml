@@ -1,0 +1,48 @@
+@model IEnumerable<Industry4Project.Models.feedback>
+
+@{ ViewData["Title"] = "Index"; }
+
+<h1>Feedback</h1>
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+  </p>*@
+@{ if (User.Identity.IsAuthenticated)
+   {
+        <p>
+            <a asp-action="Create" class="btn btn-info" role="button">Submit your feedback</a>
+        </p>
+    }
+ }
+@foreach (var item in Model)
+{
+    <h2>@Html.DisplayFor(modelItem => item.Heading)</h2>
+    <p>@Html.DisplayFor(modelItem => item.CompanyorOrganisationName)</p>
+    <p>@{ 
+            for (int i = 0; i < item.Agree; i++)
+            {
+                <span style="color: #f8bd08; ">&#x2605;</span>
+            }
+            for (int i = 0; i < 5 - item.Agree; i++)
+            {
+                <span>&#x2606;</span>
+            }
+        }
+    </p>
+
+    <p>@Html.DisplayFor(modelItem => item.FeedBack)</p>
+    <p>Feedback by <b>@Html.DisplayFor(modelItem => item.UserName)</b> on @Html.DisplayFor(modelItem => item.Date)</p>
+     @if (User.IsInRole("Manager"))
+     {
+        <a asp-action="Edit" class="btn btn-primary" role="button" asp-route-id="@item.Id">Edit</a>
+     }
+    <a asp-action="Details" class="btn btn-light" role="button" asp-route-id="@item.Id">Details</a>
+    @if (User.IsInRole("Manager"))
+    {
+        <a asp-action="Delete" class="btn btn-primary" role="button" asp-route-id="@item.Id">Delete</a>
+    }
+    <a asp-action="IncreaseAgree" class="btn btn-success" role="button" asp-route-id="@item.Id">Agree(@item.Agree)</a>
+    <a asp-action="IncreaseDisagree" class="btn btn-danger" role="button" asp-route-id="@item.Id">Disagree(@item.Disagree)</a>
+    <hr />
+ }
+

@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Industry4Project</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/mystyle.css" />
+    <link rel="stylesheet" href="~/css/elastic-grid.min.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm fixed-top navbar-light bg-dark box-shadow md-3">
+            <div class="container">
+                <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">Industry 4.0</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="CompaniesOrganisations">Companies & Organisations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="EmergingTechnologies">Emerging Technologies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ContactAbout">Contact & About</a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="FeedBack" asp-action="index">Feedback</a>
+                        </li>*@
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-0">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-muted bg-dark">
+        <div class="container">
+            <div class="ft-main-row">
+                
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <ul class="list-items">
+                        <li class="ft-item">
+                            <a class="text-muted" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="ft-item">
+                            <a class="text-muted" asp-area="" asp-controller="Home" asp-action="CompaniesOrganisations">Companies & Organizations</a>
+                        </li>
+                        <li class="ft-item">
+                            <a class="text-muted" asp-area="" asp-controller="Home" asp-action="EmergingTechnologies">Emerging Technologies</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <ul class="list-items">
+                        <li class="ft-item">
+                            <a class="text-muted" asp-area="" asp-controller="Home" asp-action="ContactAbout">About Us</a>
+                        </li>
+                        <li class="ft-item">
+                            <a class="text-muted" asp-area="" asp-controller="Home" asp-action="ContactAbout">Contact Us</a>
+                        </li>
+                        <li class="ft-item">
+                            <a class="text-muted" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="ft-item">
+                            <a class="text-muted" asp-area="" asp-controller="Home" asp-action="Home">Jobs</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <ul class="list-items">
+                        <li class="ft-item">
+                            <a class="text-muted" asp-area="" asp-controller="Home" asp-action="Home">Copyright</a>
+                        </li>
+                        <li class="ft-item">
+                            <a class="text-muted" asp-area="" asp-controller="FeedBack" asp-action="Index">Feedback</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <ul class="list-items">
+                        <li id="icons">
+                            Follow Us<br />
+                            <a href="https://www.plus.google.com" class="fa fa-google" style="margin-left:0px; padding-left:0px" title="Follow us on Google Plus"></a>
+                            <a href="https://www.youtube.com" class="fa fa-youtube" title="Follow us on Youtube"></a>
+                            <a href="https://www.twitter.com" class="fa fa-twitter" title="Follow us on Twitter"></a>
+                            <a href="https://www.facebook.com" class="fa fa-facebook" title="Follow us on Facebook"></a>
+                            <a href="https://www.linkedin.com" class="fa fa-linkedin" title="Follow us on LinkedIn"></a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+</footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"></script>
+    <script src="~/js/modernizr.custom.js"></script>
+    <script src="~/js/classie.js"></script>
+    <script src="~/js/elastic_grid.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/js/myscript.js"></script>
+    <script src="~/js/myjquery.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

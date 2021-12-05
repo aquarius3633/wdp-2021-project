@@ -1,0 +1,63 @@
+﻿<Properties StartupConfiguration="{EC22723C-6179-4B9F-9DDB-5218825D82FF}|Default">
+  <MonoDevelop.Ide.ItemProperties.Industry4Project PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Industry4Project/wwwroot/css/mystyle.css">
+    <Files>
+      <File FileName="Industry4Project/Views/Home/Privacy.cshtml" Line="1" Column="1" />
+      <File FileName="Industry4Project/Views/Home/ContactAbout.cshtml" />
+      <File FileName="Industry4Project/wwwroot/css/mystyle.css" Line="301" Column="2" />
+      <File FileName="Industry4Project/Views/Home/CompaniesOrganisations.cshtml" />
+      <File FileName="Industry4Project/Views/Home/Index.cshtml" />
+      <File FileName="Industry4Project/wwwroot/js/myjquery.js" />
+      <File FileName="Industry4Project/wwwroot/js/myscript.js" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Industry4Project" expanded="True">
+            <Node name="Industry4Project" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True">
+                <Node name="Migrations" expanded="True">
+                  <Node name="00000000000000_CreateIdentitySchema.cs" expanded="True" />
+                  <Node name="20211010120834_industry4.cs" expanded="True" />
+                  <Node name="20211014134245_newdata.cs" expanded="True" />
+                  <Node name="20211021023219_addNewRange.cs" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="FeedBack" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True">
+                  <Node name="mystyle.css" selected="True" />
+                </Node>
+                <Node name="images" expanded="True">
+                  <Node name="Companies" expanded="True" />
+                </Node>
+                <Node name="js" expanded="True" />
+                <Node name="lib" expanded="True">
+                  <Node name="bootstrap" expanded="True">
+                    <Node name="dist" expanded="True">
+                      <Node name="css" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
